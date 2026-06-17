@@ -1,6 +1,6 @@
 {
   "name": "wlkns-security",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Hardens WordPress by disabling risky features, limiting login attempts, trapping malicious bots with honeypots, and blocking offending IPs.",
   "private": true,
   "license": "GPL-2.0-or-later",
