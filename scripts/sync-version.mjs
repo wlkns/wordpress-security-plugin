@@ -36,8 +36,8 @@ const edits = [
     },
   },
   {
-    file: 'readme.txt',
-    apply: (c, f) => patch(c, f, '"Stable tag:"', /(Stable tag:\s*)\d+\.\d+\.\d+/, `$1${version}`),
+    file: 'README.md',
+    apply: (c, f) => patch(c, f, '"Stable tag" table row', /(\*\*Stable tag\*\*\s*\|\s*)\d+\.\d+\.\d+/, `$1${version}`),
   },
 ];
 

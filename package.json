@@ -9,7 +9,7 @@
     "release:patch": "npm version patch",
     "release:minor": "npm version minor",
     "release:major": "npm version major",
-    "version": "node scripts/sync-version.mjs && git add wlkns-security.php readme.txt"
+    "version": "node scripts/sync-version.mjs && git add wlkns-security.php README.md"
   },
   "config": {
     "commit-hooks": true
