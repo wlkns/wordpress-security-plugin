@@ -1,0 +1,17 @@
+{
+  "name": "wlkns-security",
+  "version": "1.0.0",
+  "description": "Hardens WordPress by disabling risky features, limiting login attempts, trapping malicious bots with honeypots, and blocking offending IPs.",
+  "private": true,
+  "license": "GPL-2.0-or-later",
+  "scripts": {
+    "release": "npm version patch",
+    "release:patch": "npm version patch",
+    "release:minor": "npm version minor",
+    "release:major": "npm version major",
+    "version": "node scripts/sync-version.mjs && git add wlkns-security.php readme.txt"
+  },
+  "config": {
+    "commit-hooks": true
+  }
+}

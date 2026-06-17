@@ -1,0 +1,18 @@
+# Honeypot trap paths — one per line. Lines starting with # are ignored.
+# Without *, a path matches as a prefix (/.env also matches /.env.testing).
+# With *, * matches any characters in that position (e.g. /*.php, /wp-config.php*).
+/.env
+/wp-config.php
+/wp-config.php.bak
+/wp-config.php.save
+/wp-config.php~
+/wp-config.php.old
+/wp-content/plugins/wp-file-manager/readme.txt
+/.git
+/wp-admin/install.php
+/wp-admin/setup-config.php
+/vendor/phpunit/phpunit/src/util/php/eval-stdin.php
+/.aws/credentials
+/.ssh/id_rsa
+/phpinfo.php
+/info.php
