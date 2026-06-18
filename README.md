@@ -65,7 +65,12 @@ It stores blocked IP addresses (and the reason/time) in a custom table so it can
 ## Screenshots
 
 1. The Security settings screen with all hardening toggles.
+
+![Security settings screen](docs/screenshot-1-settings.png)
+
 2. The Blocked IPs screen — review, unblock, or manually add an address.
+
+![Blocked IPs screen](docs/screenshot-2-blocked-ips.png)
 
 ## Changelog
 
