@@ -1,5 +1,7 @@
 # WLKNS Security
 
+![WLKNS Security Plugin](docs/banner.png)
+
 Harden WordPress in one click: disable risky features, limit logins, trap bots with honeypots, and block offending IPs — all from a single **Security** menu.
 
 | | |
