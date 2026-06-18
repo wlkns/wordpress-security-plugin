@@ -69,12 +69,4 @@ It stores blocked IP addresses (and the reason/time) in a custom table so it can
 
 ## Changelog
 
-### 1.0.0
-
-- Initial release.
-
-## Upgrade Notice
-
-### 1.0.0
-
-Initial release.
+See [CHANGELOG.md](CHANGELOG.md) — generated from commit messages on each release.

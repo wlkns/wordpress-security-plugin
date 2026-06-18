@@ -5,13 +5,18 @@
   "private": true,
   "license": "GPL-2.0-or-later",
   "scripts": {
-    "release": "npm version patch",
-    "release:patch": "npm version patch",
-    "release:minor": "npm version minor",
-    "release:major": "npm version major",
-    "version": "node scripts/sync-version.mjs && git add wlkns-security.php README.md"
+    "release": "npm version patch -m \"chore(release): %s\"",
+    "release:patch": "npm version patch -m \"chore(release): %s\"",
+    "release:minor": "npm version minor -m \"chore(release): %s\"",
+    "release:major": "npm version major -m \"chore(release): %s\"",
+    "version": "node scripts/sync-version.mjs && git-cliff --tag v$npm_package_version -o CHANGELOG.md && git add wlkns-security.php README.md CHANGELOG.md",
+    "postversion": "git push --follow-tags",
+    "package": "bash scripts/build-zip.sh"
   },
   "config": {
     "commit-hooks": true
+  },
+  "devDependencies": {
+    "git-cliff": "^2.13.1"
   }
 }
