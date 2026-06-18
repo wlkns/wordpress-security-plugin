@@ -3,6 +3,12 @@
 All notable changes to this project are documented here.
 This file is generated from commit messages by [git-cliff](https://git-cliff.org).
 
+## [1.0.4] - 2026-06-18
+
+### Features
+
+- Update README and images.
+
 ## [1.0.3] - 2026-06-18
 
 ### Features

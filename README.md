@@ -11,7 +11,7 @@ Harden WordPress in one click: disable risky features, limit logins, trap bots w
 | **Requires at least** | WordPress 5.8 |
 | **Tested up to** | WordPress 6.5 |
 | **Requires PHP** | 7.4 |
-| **Stable tag** | 1.0.3 |
+| **Stable tag** | 1.0.4 |
 | **License** | [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html) |
 
 ## Description
