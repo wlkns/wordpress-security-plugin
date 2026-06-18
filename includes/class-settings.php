@@ -159,6 +159,20 @@ class Settings
             }
         }
 
+        // Whitelist of REST routes exempt from the unauthenticated blocker.
+        add_settings_field(
+            'rest_api_whitelist',
+            __('REST API whitelist', 'wlkns-security'),
+            [$this, 'render_textarea'],
+            self::PAGE,
+            'wlkns_wws_api_exposure',
+            [
+                'key' => 'rest_api_whitelist',
+                'description' => __('One endpoint per line, exempt from the 401 above. The /wp-json/ prefix is optional; matching is a case-insensitive prefix match (so /wp/v2/posts also covers /wp/v2/posts/123), and * matches any characters. Lines starting with # are comments. Only applies while the blocker above is enabled.', 'wlkns-security'),
+                'label_for' => 'rest_api_whitelist',
+            ]
+        );
+
         // Numeric login-limiter fields (N failures within W minutes → block for B minutes).
         $this->add_throttle_fields(
             'wlkns_wws_login',
@@ -275,6 +289,24 @@ class Settings
     }
 
     /**
+     * Render an editable multi-line textarea field.
+     *
+     * @param  array  $args  Field args.
+     */
+    public function render_textarea($args)
+    {
+        $key = $args['key'];
+        $desc = isset($args['description']) ? $args['description'] : '';
+        printf(
+            '<textarea id="%1$s" name="%2$s[%1$s]" rows="8" class="large-text code">%3$s</textarea>%4$s',
+            esc_attr($key),
+            esc_attr(WLKNS_WWS_OPTION),
+            esc_textarea($this->get_string($key)),
+            $desc === '' ? '' : '<p class="description">'.esc_html($desc).'</p>'
+        );
+    }
+
+    /**
      * Render a dropdown of administrators (the login-email recipient).
      *
      * @param  array  $args  Field args.
@@ -374,6 +406,21 @@ class Settings
         // Login-email recipient: must be an existing administrator, else 0 (none).
         $recipient = isset($input['login_emails_recipient']) ? absint($input['login_emails_recipient']) : 0;
         $clean['login_emails_recipient'] = ($recipient && user_can($recipient, 'manage_options')) ? $recipient : 0;
+
+        // REST API whitelist: clean each line, drop blanks, cap the list length.
+        $raw = isset($input['rest_api_whitelist']) ? (string) $input['rest_api_whitelist'] : '';
+        $lines = [];
+        foreach (preg_split('/\R/', $raw) as $line) {
+            $line = sanitize_text_field((string) $line);
+            if ($line === '') {
+                continue;
+            }
+            $lines[] = $line;
+            if (count($lines) >= 200) {
+                break;
+            }
+        }
+        $clean['rest_api_whitelist'] = implode("\n", $lines);
 
         return $clean;
     }

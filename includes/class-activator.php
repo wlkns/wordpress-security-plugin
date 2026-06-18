@@ -41,6 +41,8 @@ class Activator
             'disable_password_reset' => true,
             // API & exposure.
             'disable_rest_api' => true,
+            // Newline-separated REST routes exempt from the unauthenticated blocker.
+            'rest_api_whitelist' => '',
             'disable_xmlrpc' => true,
             'disable_application_passwords' => true,
             'disable_file_editing' => true,
